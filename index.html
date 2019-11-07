@@ -6,27 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Daily Planner</title>
-    <style type = "text/css">
+    <style type = "text/css"> 
+        .jumbotron{
+            text-align: center;
+        }       
         .row{
+            height: 70px;
             padding: 5px;
         }
         .hour{
+            text-align: right;
+            background: honeydew;
+            opacity: .8;
             border-top: 3px solid black;            
             padding: 5px;
         }
         .column{           
             border-radius: 5px;
         }
-        .event{
-            background: rgb(163, 162, 162);
+        
+        .form{
+            width: 940px;
+            height: 60px;
             border-radius: 5px;
+            background-color: rgb(163, 162, 162);
+        }
+        input[type=text] {            
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: none;
+            background-color: rgb(163, 162, 162);
+            color: white;
+        }
+        .btn{
+            height: 40px;
+            margin: 10px;
         }
     
     
     </style>
 
 </head>
-<body>
+<body background="images/calender.jpg">
     <div class="container">        
     
         <div class = "jumbotron">
@@ -34,54 +55,73 @@
             <p class="lead">Add and save your schedule for the day</p>
             <p>Make sure to mark your work complete!</p>
             <hr class="my-2"> 
-
+            <div id="date">Today's Date:</div>
         </div>
 
         <div class = "row">          
             <div class = "col column hour">9 A.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">10 A.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">11 A.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">12 P.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">1 P.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">2 P.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">3 P.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">4 P.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">5 P.M</div>
-            <div class = "col-10 event" id="task"></div>
+            <div class = "col-10 ">
+                <input type="text" name="schedule" class="form" id="task">
+            </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
+        
         
 
         
