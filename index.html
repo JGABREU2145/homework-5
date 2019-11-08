@@ -17,7 +17,7 @@
         .hour{
             text-align: right;
             background: honeydew;
-            opacity: .8;
+            opacity: .9;
             border-top: 3px solid red;            
             padding: 5px;
         }
@@ -30,6 +30,7 @@
             height: 60px;
             border-radius: 5px;
             background-color: rgb(163, 162, 162);
+            overflow: hidden;
         }
         input[type=text] {            
             padding: 12px 20px;
@@ -55,7 +56,7 @@
             <p class="lead">Add and save your schedule for the day</p>
             <p>Make sure to mark your work complete!</p>
             <hr class="my-2"> 
-            <div id="date"></div>
+            <div><h3 id="date"></h3></div>
         </div>
 
         <div class = "row">          
@@ -124,38 +125,30 @@
     </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="lib/moment.js"></script>
 <script type="text/javascript">
 
     $(document).ready(function() {
 
-        function addDate() {
-            var date = new Date();
-            var dd = String(date.getDate()).padStart(2, '0');
-            var mm = String(date.getMonth() + 1).padStart(2, '0');
-            var yyyy = date.getFullYear();
-
-            date = mm + '/' + dd + '/' + yyyy;
+        function addDate() {            
         
+        var date = moment().format('ll');
+
             $("#date").text("Today's date: " + date)
             
         }
 
-        addDate()
-        
-        
+        addDate()              
+
         $("#save").on("click", function() {
             var taskInput = $("#task").val().trim();
             localStorage.setItem("task", taskInput);
-            alert("You have saved text: " + localStorage.getItem("task"));
-
-        });
-
-
+            alert("You just saved task: " + localStorage.getItem("task"));        
+            localStorage.getItem("task")
+        });       
     
 
-
-
-    })
+    });
 
 </script>
 
