@@ -129,26 +129,21 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
-
-        function addDate() {            
-        
+        //function for inputing the date into the HTML
+        function addDate() {
         var date = moment().format('ll');
-
-            $("#date").text("Today's date: " + date)
-            
+            $("#date").text("Today's date: " + date)            
         }
 
         addDate()              
 
-        $("#save").on("click", function() {
-            var taskInput = $("#task").val().trim();
-            localStorage.setItem("task", taskInput);
-            alert("You just saved task: " + localStorage.getItem("task"));        
-            localStorage.getItem("task")
-        });       
-    
-
+       $("#save").on("click", function () {var taskInput = $("#task").val().trim(); 
+       localStorage.setItem("task", taskInput);
+       alert("You just saved task: " + localStorage.getItem("task")); 
     });
+
+});
+       
 
 </script>
 
