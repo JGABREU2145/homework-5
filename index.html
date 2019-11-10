@@ -25,13 +25,25 @@
             border-radius: 5px;
         }
         
-        .form{
+        .present{
             width: 940px;
             height: 60px;
             border-radius: 5px;
-            background-color: rgb(163, 162, 162);
-            overflow: hidden;
+            background-color: rgb(163, 162, 162);           
         }
+        .past{
+            width: 940px;
+            height: 60px;
+            border-radius: 5px;
+            background-color: rgb(175, 41, 41);           
+        }
+        .future{
+            width: 940px;
+            height: 60px;
+            border-radius: 5px;
+            background-color: rgb(45, 153, 45);           
+        }
+
         input[type=text] {            
             padding: 12px 20px;
             box-sizing: border-box;
@@ -54,7 +66,6 @@
         <div class = "jumbotron">
             <h1 class="display-3">Daily Planner</h1>
             <p class="lead">Add and save your schedule for the day</p>
-            <p>Make sure to mark your work complete!</p>
             <hr class="my-2"> 
             <div><h3 id="date"></h3></div>
         </div>
@@ -62,63 +73,63 @@
         <div class = "row">          
             <div class = "col column hour">9 A.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">10 A.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">11 A.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">12 P.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">1 P.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">2 P.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">3 P.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">4 P.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>
         <div class = "row">          
             <div class = "col column hour">5 P.M</div>
             <div class = "col-10 ">
-                <input type="text" name="schedule" class="form" id="task">
+                <input type="text" name="schedule" class="present" id="task" state-past="past" state-future="future">
             </div>
             <div class = "col column"><button type="button" class="btn btn-primary" id="save">Save</button></div>            
         </div>    
@@ -129,7 +140,7 @@
 <script type="text/javascript">
 
     $(document).ready(function() {
-        //function for inputing the date into the HTML
+        //Function for inputing the date into the HTML
         function addDate() {
         var date = moment().format('ll');
             $("#date").text("Today's date: " + date)            
@@ -137,10 +148,30 @@
 
         addDate()              
 
-       $("#save").on("click", function () {var taskInput = $("#task").val().trim(); 
-       localStorage.setItem("task", taskInput);
-       alert("You just saved task: " + localStorage.getItem("task")); 
+        //Function for using the save button
+       $("#save").on("click", function () {
+        var taskInput = $("#task").val().trim(); 
+        localStorage.setItem("task", taskInput);
+
+        //alert stating that the task has been saved to local storage
+        alert("You just saved task: " + localStorage.getItem("task")); 
+        var grab = localStorage.getItem("task");
+
+        $("#task").text(grab)
+
     });
+    //Funtion for changing the color fo the input background as time goes on
+    function taskState() {
+        var currentTime = moment().format('LTS');
+        var absTime = $(".hour").val().trim();
+
+        if(currentTime < absTime) {
+            $(state).attr("past");           
+        }
+        else() => {
+            $(state).attr("future");
+        }
+    }
 
 });
        
